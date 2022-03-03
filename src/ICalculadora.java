@@ -1,5 +1,9 @@
 /**
- * @author Antonio Vallecillo
+ * Este interfaz proporciona las operaciones que tiene que implementar 
+ * la calculadora del primer ejercicio del curso.
+ * 
+ * @author  Antonio Vallecillo
+ * @version 1.1
  *
  */
 public interface ICalculadora {
