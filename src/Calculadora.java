@@ -2,7 +2,6 @@
 public class Calculadora implements ICalculadora {
 
 	public Calculadora() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public double suma(double a, double b) {
