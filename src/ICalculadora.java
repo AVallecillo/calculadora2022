@@ -36,6 +36,8 @@ public interface ICalculadora {
 	 * @param a :double -- el dividendo
 	 * @param b :double -- el divisor
 	 * @return  :double -- el resultado de la division
+	 * @throws ArithmeticException (if b==0) 	//precondition
+	 * @post result*b == a						//postcondicion
 	 */
 	public double divide(double a,double b);
 
@@ -52,5 +54,7 @@ public interface ICalculadora {
 	 * @return  :boolean -- true si el numero es primo, false en otro caso.
 	 */
 	public boolean esPrimo(int n);
+	
+	
 
 }

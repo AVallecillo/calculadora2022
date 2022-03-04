@@ -51,9 +51,15 @@ public class Calculadora implements ICalculadora {
 	 * @param a :double -- el dividendo
 	 * @param b :double -- el divisor
 	 * @return  :double -- el resultado de la division
+	 * @throws ArithmeticException (if b==0) 	//precondition
+	 * @post result*b == a						//postcondicion
 	 */
 	public double divide(double a, double b) {
-		return 0;
+		double result;
+		if (b==0) throw new ArithmeticException();
+		result = a/b;
+		assert result*b == a;
+		return result;
 	}
 	/** 
 	 * El metodo fact calcula el factorial de un numero entero. 

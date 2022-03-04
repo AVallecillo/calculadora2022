@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 class TestCalculadora {
 
-    private final Calculadora c = new Calculadora();
-
+    private final Calculadora c= new Calculadora();
+    
     @Test
     void suma() {
         assertEquals(2, c.suma(1, 1));
