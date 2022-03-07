@@ -1,5 +1,5 @@
 
-public class Calculadora implements ICalculadora{
+public class Calculadora_DavidCubillos implements ICalculadora{
 
 	@Override
 	public double suma(double a, double b)  {

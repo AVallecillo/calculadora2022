@@ -56,9 +56,9 @@ class Puebas {
 	
 	@Test
 	public void pruebaFactorial() {
-		Assertions.assertEquals(6, c.factorial(3));
-		Assertions.assertEquals(1, c.factorial(0));
-		Assertions.assertEquals(-24, c.factorial(-4));
+		Assertions.assertEquals(6, c.fact(3));
+		Assertions.assertEquals(1, c.fact(0));
+		Assertions.assertEquals(-24, c.fact(-4));
 	}
 	
 	@Test
