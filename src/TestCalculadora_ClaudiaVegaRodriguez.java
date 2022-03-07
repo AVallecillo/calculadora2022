@@ -13,20 +13,26 @@ class TestCalculadora_ClaudiaVegaRodriguez {
 
 	@Test
 	public void testSuma() {
-		assertEquals(5, c.sum(2, 3));
-		assertNotEquals(6, c.sum(7, 291));
+		assertEquals(5, c.suma(2, 3));
+		assertNotEquals(6, c.suma(7, 291));
 	}
 
 	@Test
 	public void testMultiplicacion() {
-		assertEquals(42, c.multiplicacion(6, 7));
-		assertNotEquals(26, c.multiplicacion(1, 4));
+		assertEquals(42, c.mult(6, 7));
+		assertNotEquals(26, c.mult(1, 4));
 	}
 
 	@Test
 	public void testResta() {
-		assertEquals(5, c.rest(8, 3));
-		assertNotEquals(1, c.rest(6, 2));
+		assertEquals(5, c.resta(8, 3));
+		assertNotEquals(1, c.resta(6, 2));
+	}
+	
+	@Test
+	public void testDivide() {
+		assertEquals(4, c.divide(8, 2));
+		assertNotEquals(1, c.divide(6, 2));
 	}
 	
 	@Test
