@@ -18,6 +18,7 @@ public class TestCalculadora_Archerd6
 	}
 	
 	@Test
+	/**Test para probar la suma*/
 	void suma()
 	{
 		assertEquals(6.0, c.suma(2, 4));
@@ -35,6 +36,7 @@ public class TestCalculadora_Archerd6
 	}
 	
 	@Test
+	/**Test para probar la resta*/
 	void resta()
 	{
 		assertEquals(4.0, c.resta(6, 2));
@@ -52,6 +54,7 @@ public class TestCalculadora_Archerd6
 	}
 
 	@Test
+	/**Test para probar la multiplicación*/
 	void mult()
 	{
 		assertEquals(4.0, c.mult(2, 2));
@@ -69,6 +72,7 @@ public class TestCalculadora_Archerd6
 	}
 	
 	@Test
+	/**Test para probar la división*/
 	void divide()
 	{
 		assertEquals(10.0, c.divide(20, 2));
@@ -86,6 +90,7 @@ public class TestCalculadora_Archerd6
 	}
 	
 	@Test
+	/**Test para probar el factorial*/
 	void fact()
 	{
 		assertEquals(1, c.fact(0));
@@ -97,6 +102,7 @@ public class TestCalculadora_Archerd6
 	}
 	
 	@Test
+	/**Test para probar si un número es primo */
 	void esPrimo()
 	{
 		assertFalse(c.esPrimo(1));
