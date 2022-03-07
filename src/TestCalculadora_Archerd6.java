@@ -30,7 +30,7 @@ public class TestCalculadora_Archerd6
 			for (double b=-10.0; b<10.0; b+=1.0)
 			{ 
 				s = c.suma(a,b);
-				assert (s==a+b):("Error suma: a="+a+" b="+b+" s="+s);			
+				assertEquals(a+b,s);
 			}
 		}
 	}
@@ -48,7 +48,7 @@ public class TestCalculadora_Archerd6
 			for (double b=-10.0; b<10.0; b+=1.0)
 			{ 
 				r = c.resta(a,b);
-				assert (r==a-b):("Error resta: a="+a+" b="+b+" r="+r);			
+				assertEquals(a-b,r);
 			}
 		}
 	}
@@ -66,7 +66,7 @@ public class TestCalculadora_Archerd6
 			for (double b=-10.0; b<10.0; b+=1.0)
 			{ 
 				m = c.mult(a,b);
-				assert (m==a*b):("Error multiplicación: a="+a+" b="+b+" m="+m);			
+				assertEquals(a*b,m);
 			}
 		}
 	}
@@ -111,7 +111,7 @@ public class TestCalculadora_Archerd6
 		assertFalse(c.esPrimo(4));
 		assertTrue(c.esPrimo(199));
 		assertFalse(c.esPrimo(200));
-		assertThrows(RuntimeException.class,()->c.esPrimo(-1));
+		assertEquals(false,c.esPrimo(-1));
 	}
 	
 }
