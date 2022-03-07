@@ -1,7 +1,6 @@
 /**
  * @author Nerea
  */
-package test;
 
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,7 +12,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import main.Calculadora;
 
 public class Test_Calculadora_nmartin {
 
