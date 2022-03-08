@@ -1,7 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import java.math.BigInteger;
 
 import org.junit.jupiter.api.Test;
 
@@ -68,11 +67,17 @@ public class TestCalculadora_smv762e {
 	@Test
 	public void divideCompleja() {
 		assertEquals(10, c.divide(20, 2));
+		assertThrows(RuntimeException.class,()->c.divide(0, 0));
 		double d;
 		for (double a=-10.0;a<10.0;a+=1.0) {
 			for (double b=-10.0;b<10.0;b+=1.0) { 
-				d = c.divide(a, b);
-				assert d == a / b:"Error divisón: a = "+a+", b = "+b+", d = "+d;			
+				if (b == 0) {
+					assertThrows(RuntimeException.class,()->c.divide(0, 0));
+				}
+				if (b != 0) {
+					d = c.divide(a, b);
+					assert d == a / b:"Error divisón: a = "+a+", b = "+b+", d = "+d;
+				}
 			}
 		}
 	}
@@ -82,10 +87,16 @@ public class TestCalculadora_smv762e {
 		assertEquals(6, c.fact(3));
 	}
 	
-//	@Test
-//	public void factComplejo() {
-//		assertEquals(87178291200, c.fact(14));
-//	}
+	@Test
+	public void factComplejo() {
+		assertEquals(120, c.fact(5));
+		assertNotEquals(2, c.fact(4));
+	}
+	
+	@Test
+	public void factGrande() {
+		assertThrows(RuntimeException.class,()->c.fact(14));
+	}
 		
 	@Test
 	public void factNegativo() {
@@ -94,7 +105,7 @@ public class TestCalculadora_smv762e {
 
 	@Test
 	public void primoSimple() {
-		assertEquals(true, c.esPrimo(7));
+		assertEquals(true, c.esPrimo(23));
 	}
 	
 	@Test 
