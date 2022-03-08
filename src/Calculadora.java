@@ -10,8 +10,7 @@
 
 public class Calculadora implements ICalculadora {
 	
-	private final double PRECISION=1.0E-8;
-	
+
 	/**
 	 * CONSTRUCTOR. Inicialmente no hace nada porque la calculadora no tiene estado 
 	 * ni necesita guardar nada en memoria.
