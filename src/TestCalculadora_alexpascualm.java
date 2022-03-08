@@ -16,22 +16,16 @@ public class TestCalculadora_alexpascualm {
 	    }
 	    @Test
 	    public void dividetest() {
-	    	ArithmeticException thrown = assertThrows(ArithmeticException.class, () -> {
-	             c.divide(12, 0);
-	    });
+	    	 assertThrows(ArithmeticException.class, () -> {c.divide(12, 0);});
 	    	
-	    	//assertEquals("Exception in thread \"main\" java.lang.ArithmeticException"
-	    		//	, thrown.getMessage());
+	    	
 	    }
 	    @Test
 	    public void factTest(){
 	    	assertEquals(1,c.fact(0));
 	    	assertEquals(6,c.fact(3));
-	    	StackOverflowError thrown = assertThrows(StackOverflowError.class, () -> {
-	            c.fact(-3);
-	   });
-
-	   assertEquals("Exception in thread \"main\" java.lang.StackOverflowError", thrown.getMessage());
+	    	assertThrows(StackOverflowError.class, () -> {c.fact(-3);});
+	   		assertTrue(c.fact(16)>c.fact(15));
 	    }
 	    
 }
