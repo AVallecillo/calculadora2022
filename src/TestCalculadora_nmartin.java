@@ -7,27 +7,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-public class Test_Calculadora_nmartin {
+public class TestCalculadora_nmartin {
 
 	private Calculadora c;
-
-	// Mensaje cuando empieza el Test
-	@BeforeAll
-	public static void empezarTest() {
-		System.out.println("Empezando el Testing de la clase Calculadora con JUnit 5");
-	}
-
-	// Mensaje cuando acba el test
-	@AfterAll
-	public static void terminarTest() {
-		System.out.println("Terminado el Testing de la clase Calculadora con JUnit 5");
-	}
 
 	// Antes de cada test inicializamos la variable
 	@BeforeEach
