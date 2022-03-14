@@ -33,7 +33,7 @@ public class Calculadora_alexpascualm implements ICalculadora {
 		return a-b;
 	}
 	/** 
-	 * Calcula el producto de dos numeros que son pasados como parametros. 
+	 * Calcula el producto de dos numeros que son pasados como parametros
 	 * @param a :double -- 
 	 * @param b :double -- 
 	 * @return  :double -- Producto
