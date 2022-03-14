@@ -1,98 +1,64 @@
 
 public class Calculadora implements ICalculadora {
-/**
- * El método suma dos valores
- * @param a :double -- un sumando
- * @param b :double -- otro sumando
- * @return :double -- el resultado de la suma
- * 
- */
+	/**
+	 * @author Florin
+	 */
+	@Override
 	public double suma(double a, double b) {
-		
-		return a + b;
+		return (a + b);
 	}
-	
-	/**
-	 * El método resta dos valores
-	 * @param a :double -- un valor
-	 * @param b :double -- el valor que se le resta
-	 * @return :double -- el resultado de la suma
-	 * 
-	 */
 
+	@Override
 	public double resta(double a, double b) {
-		return Math.round((a-b)*1000d)/1000d;
+		return (a - b);
 	}
-	
-	/**
-	 * El método multiplica dos valores
-	 * @param a :double -- un factor
-	 * @param b :double -- otro factor
-	 * @return :double -- el resultado de la suma
-	 * 
-	 */
 
+	@Override
 	public double mult(double a, double b) {
-		return a * b;
+		double valor = a * b;
+		return valor;
+		
 	}
 
-	/**
-	 * El metodo divide calcula la division de dos numeros reales
-	 * 
-	 * @param a :double -- el dividendo
-	 * @param b :double -- el divisor
-	 * @return :double -- el resultado de la division
-	 * @throws ArithmeticException if b==0) //precondition
-	 * @post result*b == a
-	 */
+	@Override
 	public double divide(double a, double b) {
-		double result;
-		if (b == 0)
-			throw new ArithmeticException();
-		result = a / b;
-		assert result * b == a;
-		return result;
+		double valor;
+		if (b == 0) {
+			throw new ArithmeticException("Divison por 0");
+		}
+		valor = a / b;
+		if (valor * b != a) {
+			throw new ArithmeticException("Mala precision del calculo");
+		}
+		return valor;
 	}
 
-	/**
-	 * Calcula el factorial
-	 * @param a :int -- el valor al cual calcular el factorial
-	 * @return  :int -- el resultado del factorial
-	 * 
-	 */
+	@Override
 	public int fact(int n) {
-		int result = 1;
-		for (int x = 1; x < Math.abs(n); x++) {
-			result = result * x;
+		int valor = 1;
+		int i = 2;
+		while (i <= n) {
+			valor *= i;
+			i++;
 		}
-		if (n != 0) {
-			result = result * n;
-		}
-		return result;
+		return valor;
 	}
-	
-	/**
-	 * Ddevuelve si es primo o no
-	 * @param a :int -- el valor a comprobar
-	 * @return  :boolean -- el resultado
-	 * 
-	 */
-	
+
+	@Override
 	public boolean esPrimo(int n) {
-		if (n < 0) {
-			throw new ArithmeticException();
-		}
-		int cont = 0;
-		boolean prim = false;
-		for (int x = 1; x <= n; x++) {
-			if (n % x == 0) {
-				cont++;
+		boolean primo = true;
+		if (n > 1) {
+			int contador = 2;
+			while ((primo) && (contador < n)) {
+				if (n % contador == 0) {
+					primo = false;
+				}
+				contador++;
 			}
+		} else {
+			primo = false;
 		}
-		if (cont == 2) {
-			prim = true;
-		}
-		return prim;
+		return primo;
 	}
 
 }
