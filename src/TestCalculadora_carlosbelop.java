@@ -1,5 +1,8 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,21 +17,7 @@ import org.junit.jupiter.api.BeforeAll;
 class TestCalculadora_carlosbelop {
 	
 	private Calculadora c;
-	/**
-	 * 
-	 *Cuenta el número de decimales de un número 
-	 *@param a :double -- el número a contar sus decimales
-	 */
-	public int decimales(double a) {
-		boolean cero=!(a%1==0);
-		int cont=0;
-		while (cero) {
-			cont++;
-			cero=!((a*10)%1==0);
-			a=a*10;
-		}
-		return cont;
-	}
+
 	/**
 	 * 
 	 * Crea un objeto calculadora antes de realizar cada Test
@@ -45,7 +34,9 @@ class TestCalculadora_carlosbelop {
 	 */
 	@Test
 	void testSuma() {
-		double i = 1.8*Math.pow(10,308);
+		double i = Double.MAX_VALUE;
+		assertThrows(ArithmeticException.class, ()->c.suma(i,1));
+		assertThrows(ArithmeticException.class, ()->c.suma(-i,-1));
 		assertEquals(i+1, c.suma(1,i));
 		assertEquals(2, c.suma(1,1));
 		assertEquals(0, c.suma(0,0));
@@ -65,6 +56,8 @@ class TestCalculadora_carlosbelop {
 	 */
 	@Test
 	void testResta() {
+		assertThrows(ArithmeticException.class, ()->c.resta(Double.MAX_VALUE,1));
+		assertThrows(ArithmeticException.class, ()->c.resta(-Double.MAX_VALUE,-1));
 		assertEquals(0, c.resta(1,1));
 		assertEquals(0, c.resta(0,0));
 		assertEquals(-2, c.resta(-1,1));
@@ -83,6 +76,8 @@ class TestCalculadora_carlosbelop {
 	 */
 	@Test
 	void testMult() {
+		assertThrows(ArithmeticException.class, ()->c.mult(Double.MAX_VALUE,2));
+		assertThrows(ArithmeticException.class, ()->c.mult(-Double.MAX_VALUE,-2));
 		assertEquals(1, c.mult(1,1));
 		assertEquals(0, c.mult(0,0));
 		assertEquals(-1, c.mult(-1,1));
@@ -101,10 +96,15 @@ class TestCalculadora_carlosbelop {
 	 */
 	@Test
 	void testFactorial() {
+		double mult=1;
+		for (int i=1;i<20;i++) {
+			mult=mult*i;
+			assertEquals(mult,c.fact(i));
+		}
 		assertEquals(1,c.fact(0));
 		assertEquals(1,c.fact(1));
 		assertEquals(2,c.fact(2));
-		assertEquals(720,c.fact(6));
+		assertEquals(1307674368000d,c.fact(15));
 		assertEquals(-2,c.fact(-2));
 	}
 	/**
