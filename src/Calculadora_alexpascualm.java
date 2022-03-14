@@ -41,9 +41,10 @@ public class Calculadora_alexpascualm implements ICalculadora {
 	 */
 	public double mult(double a, double b) {
 		double resultado=a*b;
+		if(b!=0 & a!=0) {
 		if ((resultado/b!=a)||(resultado/a!=b)){
 			throw new ArithmeticException();
-		}
+		}}
 		return a*b;
 	}
 	/**
