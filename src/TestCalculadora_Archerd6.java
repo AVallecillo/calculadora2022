@@ -82,9 +82,16 @@ public class TestCalculadora_Archerd6
 		for (double a=-10.0;a<10.0;a+=1.0)
 		{
 			for (double b=-10.0;b<10.0;b+=1.0)
-			{ 
-				d = c.divide(a, b);
-				assert (0==Double.compare(d,a/b)):("Error divisón: a="+a+" b="+b+" d="+d);			
+			{
+				try
+				{
+					d = c.divide(a, b);
+					assert (0==Double.compare(d,a/b)):("Error divisón: a="+a+" b="+b+" d="+d);
+				}
+				catch(Exception ex)
+				{
+					assertThrows(RuntimeException.class,()->c.divide(1, 0));
+				}
 			}
 		}
 	}
