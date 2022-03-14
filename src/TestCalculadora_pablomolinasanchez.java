@@ -1,71 +1,88 @@
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TestCalculadora_pablomolinasanchez {
+	
 
-	
-	private Calculadora c;
+	private Calculadora_pablomolinasanchez c;
 
-	
-	
 	@BeforeEach
 	void start() {
-	c = new Calculadora();
+	c = new Calculadora_pablomolinasanchez();
 	}
-	
 	
 	@Test
 	void testSuma() {
-		assertEquals(2, c.suma(1,1));
-		assertTrue(c.suma(1,1)==2);
-		assertNotEquals(0, c.suma(2, 2));
-		
+		assertEquals(2, c.suma(1, 1));
+		double suma;
+		for (double a=-10.0;a<10.0;a+=1.0) {
+			for (double b=-10.0;b<10.0;b+=1.0) { 
+				suma = c.suma(a, b);
+				assertEquals(suma,a+b);
+			}
+		}
 	}
-	
-	
+		
 	@Test
 	void testResta() {
-		assertEquals(0, c.resta(1,1));
-		assertTrue(c.resta(1,1)==0);
-		assertNotEquals(0, c.resta(2, 2));
+		assertEquals(10, c.resta(15, 5));
+		double resta;
+		for (double a=-10.0;a<10.0;a+=1.0) {
+			for (double b=-10.0;b<10.0;b+=1.0) { 
+				resta = c.resta(a, b);
+				assertEquals(resta,a-b);
+			}
+		}
 	}
-	
-
-	@Test
-	void testMult() {
-		assertEquals(1, c.mult(1,1));
-		assertTrue(c.mult(1,1)==1);
-		assertNotEquals(4, c.mult(2, 2));
-	
-	}
-	
-	@Test
-	void testFactorial() {
-		assertEquals(1,c.fact(0));
-		assertEquals(1,c.fact(1));
-		assertEquals(2,c.fact(2));
-	
-	}
-	
-	@Test
-	void testDivision() {
-		assertThrows(ArithmeticException.class, ()->c.divide(1, 0));
-		assertEquals(-1, c.divide(-1,1));
-		assertTrue(c.divide(2,3)==2d/3d);
-		assertNotEquals(2, c.divide(1, 1));
 		
-	}
-	
-	@Test
-	void testPrimo() {
-		assertFalse(c.esPrimo(0));
-		assertFalse(c.esPrimo(1));
-		assertTrue(c.esPrimo(2));
-		assertTrue(c.esPrimo(3));
-		assertThrows(ArithmeticException.class, ()->c.esPrimo(-1));
-	}
+		@Test
+		void testMult() {
+			assertEquals(10, c.mult(2, 5));
+			double mult;
+			for (double a=-10.0;a<10.0;a+=1.0) {
+				for (double b=-10.0;b<10.0;b+=1.0) { 
+					mult = c.mult(a, b);
+					assertEquals(mult,a*b);
+				}
+			}
+		}
+		@Test
+		void testDiv() {
+			assertEquals(10, c.divide(20, 2));
+			assertThrows(RuntimeException.class,()->c.divide(0, 0));
+			double div;
+			for (double a=-10.0;a<10.0;a+=1.0) {
+				for (double b=-10.0;b<10.0;b+=1.0) { 
+					if (b == 0) {
+						assertThrows(RuntimeException.class,()->c.divide(0, 0));
+					}
+					if (b != 0) {
+						div = c.divide(a, b);
+						assertEquals(div,a/b);
+					}
+				}
+			}
+		}
+		@Test
+		void testFact() {
+			assertEquals(120, c.fact(5));
+			
+			assertThrows(RuntimeException.class,()->c.fact(13));
+			assertThrows(RuntimeException.class,()->c.fact(-1));
+			assertThrows(RuntimeException.class,()->c.fact(0));
+		}
+		
+		@Test
+		void testPrimo() {
+			assertEquals(true, c.esPrimo(2));
+			assertEquals(false,c.esPrimo(-2));
+			}	
+		}
+		
 
-}
+	
+	

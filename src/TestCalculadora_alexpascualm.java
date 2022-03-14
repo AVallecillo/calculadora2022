@@ -24,8 +24,11 @@ public class TestCalculadora_alexpascualm {
 	    public void factTest(){
 	    	assertEquals(1,c.fact(0));
 	    	assertEquals(6,c.fact(3));
-	    	assertThrows(StackOverflowError.class, () -> {c.fact(-3);});
-	   		assertTrue(c.fact(16)>c.fact(15));
+	    	assertThrows(IllegalArgumentException.class, () -> {c.fact(-3);});
+	    	assertThrows(IllegalArgumentException.class, () -> {c.fact(14);});
+	    	assertThrows(IllegalArgumentException.class, () -> {c.fact(15);});
+	   		
 	    }
+	   
 	    
 }
