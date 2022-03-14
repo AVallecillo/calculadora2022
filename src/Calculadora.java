@@ -1,64 +1,93 @@
+//David Cubillos 
+public class Calculadora implements ICalculadora{
 
-public class Calculadora implements ICalculadora {
-	/**
-	 * @author Florin
-	 */
 	@Override
-	public double suma(double a, double b) {
-		return (a + b);
+	public double suma(double a, double b)  {
+		 double mark = Double.MAX_VALUE;
+		if (Math.abs (a/2)+Math.abs(b/2) >=(mark/2)) {
+			throw new RuntimeException ("La suma de los numeros supera la capacidad de un double"); 
+		}
+		return a+b;
 	}
-
+	
+	
 	@Override
 	public double resta(double a, double b) {
-		return (a - b);
-	}
-
-	@Override
-	public double mult(double a, double b) {
-		double valor = a * b;
-		return valor;
+		 double mark = Double.MAX_VALUE;
+		 //System.out.println(mark +" resultado de a="+ a+"   b="+b );
+			if (Math.abs(a/2)+Math.abs(b/2) >=(mark/2)) {
+				throw new RuntimeException ("La suma de los numeros supera la capacidad de un double"); 
+			}
+			return a-b;
 		
 	}
 
 	@Override
+	public double mult(double a, double b) {
+		// raiz por raiz llegaria al maximo resultadao
+		if (Math.sqrt(Double.MAX_VALUE)<= Math.sqrt(a)*Math.sqrt(b)) {
+			throw new RuntimeException ("los valores no puden multiplicarse "); 
+
+		}
+		double res= a*b;	
+		return res;
+	}
+	
+
+	@Override
 	public double divide(double a, double b) {
-		double valor;
-		if (b == 0) {
-			throw new ArithmeticException("Divison por 0");
+		if (b==0 || Math.sqrt(Double.MAX_VALUE)<= Math.sqrt(a)/Math.sqrt(b)) {			
+			throw new RuntimeException ("no se puede dividir"); 
+			
 		}
-		valor = a / b;
-		if (valor * b != a) {
-			throw new ArithmeticException("Mala precision del calculo");
+		if (b< (1/Double.MAX_VALUE) && a>1) {
+			throw new RuntimeException ("no se puede dividir"); 
+	
 		}
-		return valor;
+		// si b es muy pequeño pude generar problemas
+		
+		return  a/b;
 	}
 
 	@Override
 	public int fact(int n) {
-		int valor = 1;
-		int i = 2;
-		while (i <= n) {
-			valor *= i;
-			i++;
+		int i=1, j=1;
+		if ( n <=0) {
+			throw new RuntimeException ("el factorial no se puede calcular"); 
+
 		}
-		return valor;
+		if (n=>14) {
+			throw new RuntimeException ("el factorial no se puede calcular con un int: overflow"); 
+
+		}
+		while (i<=n) {
+			j*= i;
+			 i+=1;
+			
+		}
+
+		return j;
 	}
+	
 
 	@Override
-	public boolean esPrimo(int n) {
-		boolean primo = true;
-		if (n > 1) {
-			int contador = 2;
-			while ((primo) && (contador < n)) {
-				if (n % contador == 0) {
-					primo = false;
-				}
-				contador++;
+	public boolean esPrimo(int n) {// no acpta decimales
+		// no acepta numeros mauores que 
+		
+		int i =2; 
+		boolean var = true;
+		
+		while (i< Math.abs(n)) {
+			if (n%i==0) {
+				var = false;
 			}
-		} else {
-			primo = false;
-		}
-		return primo;
+			i+=1;
+		} 
+	
+			return var;
+		
+	
+	
 	}
 
 }
