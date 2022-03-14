@@ -10,11 +10,11 @@ import org.junit.jupiter.api.Test;
  *
  */
 class TestCalculadora_FlorinUMA {
-	Calculadora_FlorinUMA miCalculadora;
+	Calculadora miCalculadora;
 
 	@BeforeEach
 	void init() {
-		miCalculadora = new Calculadora_FlorinUMA();
+		miCalculadora = new Calculadora();
 	}
 
 	@Test
