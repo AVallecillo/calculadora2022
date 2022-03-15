@@ -35,7 +35,10 @@ public class Calculadora_FlorinUMA implements ICalculadora {
 	@Override
 	public double mult(double a, double b) {
 		double resultado = a * b;
-		if( resultado/a != b || resultado/b != a) {
+		if(a == 0 || b == 0) {
+			resultado = 0;
+		}
+		else if( resultado/a != b || resultado/b != a) {
 			throw new ArithmeticException("Precision insuficiente");
 		}
 		return resultado;
@@ -57,7 +60,7 @@ public class Calculadora_FlorinUMA implements ICalculadora {
 /**
  * Calculamos el factorial de un numero
  * @param n es el numero al que le vamos a hacer el factorial
- * @throws 
+ * @throws IllegalArgumentException si no se puede calcular el factorial
  */
 	@Override
 	public int fact(int n) {
