@@ -33,7 +33,7 @@ public class Calculadora_alexpascualm implements ICalculadora {
 		return a-b;
 	}
 	/** 
-	 * Calcula el producto de dos numeros que son pasados como parametros. 
+	 * Calcula el producto de dos numeros que son pasados como parametros
 	 * @param a :double -- 
 	 * @param b :double -- 
 	 * @return  :double -- Producto
@@ -41,9 +41,10 @@ public class Calculadora_alexpascualm implements ICalculadora {
 	 */
 	public double mult(double a, double b) {
 		double resultado=a*b;
+		if(b!=0 & a!=0) {
 		if ((resultado/b!=a)||(resultado/a!=b)){
 			throw new ArithmeticException();
-		}
+		}}
 		return a*b;
 	}
 	/**
@@ -79,7 +80,7 @@ public class Calculadora_alexpascualm implements ICalculadora {
 	 * @return  :boolean -- Resultado 
 	 */
 	public boolean esPrimo(int n) {
-		if(n<=0) return false;
+		if(n<=1) return false;
 		  for(int i=2;i<n;i++) {
 		        if(n%i==0)
 		            return false;
